@@ -1,4 +1,5 @@
 import { Navbar, Nav } from "react-bootstrap";
+import Geners from "./Genres";
 import SearchBox from "./SearchBox";
 const Header = () => {
   return (
@@ -11,6 +12,7 @@ const Header = () => {
           <Nav.Link href="#link">Home</Nav.Link>
         </Nav>
         <SearchBox />
+        <Geners />
       </Navbar.Collapse>
     </Navbar>
   );
