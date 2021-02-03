@@ -19,7 +19,6 @@ const Geners = () => {
   }, [setGenres]);
   const handleChange = (e) => {
     const genreID = e.target.value;
-    console.log(genreID);
 
     fetch(constructUrl("movie/popular"))
       .then((response) => response.json())
@@ -27,7 +26,6 @@ const Geners = () => {
         setMovies(
           data.results.filter((movie) => {
             let genreIdS = movie.genre_ids.includes(+genreID);
-            console.log(genreIdS);
             return genreIdS;
           })
         );
@@ -35,9 +33,9 @@ const Geners = () => {
   };
   return (
     <Form>
-      <Form.Group controlId="exampleForm.SelectCustom" className="mr-2 mt-3">
+      <Form.Group controlId="exampleForm.SelectCustom" className="mx-2 mt-3">
         <FormControl as="select" custom onChange={handleChange}>
-          <option value="AllMovies" selected disabled hidden>
+          <option value="AllMovies" defaultValue="selected" disabled hidden>
             All Movies
           </option>
           {genres

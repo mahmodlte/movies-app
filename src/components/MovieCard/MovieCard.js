@@ -1,7 +1,6 @@
 import { Card } from "react-bootstrap";
 
 const MovieCard = ({ movie }) => {
-  console.log(movie);
   const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
   return (
