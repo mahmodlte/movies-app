@@ -1,6 +1,7 @@
 import { useEffect, useContext } from "react";
 import { MoviesContext } from "../../components/MoviesContext/MoviesContext";
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import MovieCard from "../../components/MovieCard/MovieCard";
 const Home = () => {
   const [movies, setMovies] = useContext(MoviesContext);
@@ -18,7 +19,9 @@ const Home = () => {
         {movies.map((movie) => {
           return (
             <Col key={movie.id} className="mx-2 mb-3" sm="3">
-              <MovieCard movie={movie} />
+              <Link style={{ textDecoration: "none" }} to={`movie/${movie.id}`}>
+                <MovieCard movie={movie} />
+              </Link>
             </Col>
           );
         })}

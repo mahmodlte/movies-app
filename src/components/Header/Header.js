@@ -12,7 +12,7 @@ const Header = () => {
           <NavLink className="mr-2" exact to="/">
             Home
           </NavLink>
-          <NavLink exact to="/populer">
+          <NavLink exact to="/popular">
             Popular Movies
           </NavLink>
         </Nav>

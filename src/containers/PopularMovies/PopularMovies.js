@@ -1,5 +1,6 @@
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import MovieCard from "../../components/MovieCard/MovieCard";
 const PopularMovies = () => {
   const API_URL =
@@ -16,12 +17,17 @@ const PopularMovies = () => {
         {movies
           ? movies.map((movie) => {
               return (
-                <Col className="mx-2 mb-3" sm="3">
-                  <MovieCard movie={movie} />
+                <Col key={movie.id} className="mx-2 mb-3" sm="3">
+                  <Link
+                    style={{ textDecoration: "none" }}
+                    to={`movie/${movie.id}`}
+                  >
+                    <MovieCard movie={movie} />
+                  </Link>
                 </Col>
               );
             })
-          : console.log("there is no data check the api")}
+          : console.error("there is no data check the api")}
       </Row>
     </Container>
   );
