@@ -52,7 +52,7 @@ const PopularMovies = () => {
                 </Col>
               );
             })
-          : console.error("there is no data check the api")}
+          : console.warn("there is no data check the api")}
       </Row>
       <div className="d-flex flex-row">
         <Form className="my-5 mx-auto">

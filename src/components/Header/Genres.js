@@ -46,7 +46,7 @@ const Geners = () => {
                   </option>
                 );
               })
-            : console.log("there is no data")}
+            : console.warn("there is no data")}
         </FormControl>
       </Form.Group>
     </Form>

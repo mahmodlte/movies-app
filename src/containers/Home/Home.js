@@ -10,6 +10,7 @@ import {
   ButtonToolbar,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import MovieCard from "../../components/MovieCard/MovieCard";
 const Home = () => {
   const [movies, setMovies] = useContext(MoviesContext);
@@ -23,7 +24,7 @@ const Home = () => {
     fetch(API_URL(page)).then((data) =>
       data.json().then((moviesInfo) => setMovies(moviesInfo.results))
     );
-  }, [page]);
+  }, [page, setMovies]);
   const nextBtnHandler = (e) => {
     e.preventDefault();
     setPage((prevNum) => prevNum + 1);
@@ -35,12 +36,17 @@ const Home = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="mt-4">
         {movies.map((movie) => {
           return (
-            <Col key={movie.id} className="mx-2 mb-3" sm="3">
+            <Col key={movie.id} className="mx-2 mb-3" sm="5" md="5" lg="3">
               <Link style={{ textDecoration: "none" }} to={`movie/${movie.id}`}>
-                <MovieCard movie={movie} />
+                <motion.div
+                  whileTap={{ scale: 0.9 }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <MovieCard movie={movie} />
+                </motion.div>
               </Link>
             </Col>
           );

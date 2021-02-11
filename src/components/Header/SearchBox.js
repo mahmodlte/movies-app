@@ -25,7 +25,7 @@ const SearchBox = () => {
     <Form onSubmit={handleSubmit} inline>
       <FormControl
         type="text"
-        placeholder="Search for you favorite movie"
+        placeholder="Search for a movie"
         className="mr-sm-2"
         onChange={handleQuery}
       />
